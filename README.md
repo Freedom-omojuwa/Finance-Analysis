@@ -1,7 +1,10 @@
-# Furniture Sales Performance Dashboard (Excel)
-> *Interactive Excel dashboard analyzing furniture sales performance across different regions in the United States to uncover trends in sales, profit, shipping, and customer segments for better business decision-making.*
+# Finance Analytics Dashboard (Power BI)
 
-![Furniture Sales Dashboard](visuals/dashboard.png)
+> Interactive Power BI dashboard analyzing financial transactions, customer demographics, fees, taxes, transaction performance, and year-over-year trends using an end-to-end data model.
+
+![Overview Dashboard](visuals/overview-dashboard.png)
+
+![Transaction Dashboard](visuals/transaction-dashboard.png)
 ---
 
 ## Table of Contents
