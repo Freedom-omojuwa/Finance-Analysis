@@ -127,13 +127,10 @@ finance-analytics-dashboard/
 └── README.md                             # Project documentation and setup guide
 
 ---
-
-## 5. Data Workflow
-
 ```
 ## 5. Data Workflow
 
-```text
+```
 Customers.csv             Financial_Transactions.csv
         │                           │
         └──────────────┬────────────┘
@@ -167,8 +164,6 @@ Customers.csv             Financial_Transactions.csv
 
 6. **Output:** Delivered a Finance Analytics Dashboard that enables stakeholders to monitor KPIs, analyze trends, and make data-driven business decisions.
 ```
-
----
 
 ## 6. Data Model & Schema
 
@@ -309,9 +304,120 @@ This approach improves query performance, simplifies filtering, and supports reu
 - ✔ Reusable DAX Measures
 - ✔ Optimized Model for Interactive Reporting
   
+## 7. Dashboard Pages
+
+The Finance Analytics Dashboard consists of **two interactive report pages**, designed to provide both high-level business insights and detailed transaction analysis.
 
 ---
 
+### Dashboard 1 – Finance Overview
+
+**Purpose:**  
+Provides an executive overview of financial performance, customer behavior, and transaction trends through interactive KPIs and visualizations.
+
+#### Visuals Included
+
+| Visual | Description |
+|--------|-------------|
+| KPI Cards | Displays Total Amount, Total Transactions, Average Transaction Value, Total Fees, and Total Tax with Year-over-Year (YoY) comparisons. |
+| Line Chart | Shows monthly transaction amount trends to identify seasonal patterns and performance changes over time. |
+| Donut Chart | Analyzes transaction amounts by status (Success, Failed, Pending). |
+| Horizontal Bar Chart | Compares transaction amounts across customer segments. |
+| Horizontal Bar Chart | Displays state-wise financial performance. |
+| Matrix / Heatmap | Analyzes transaction types using Amount, Fees, Tax, and Transaction Count. |
+| Donut Chart | Compares transaction amounts by customer gender. |
+| Slicers | Enables dynamic filtering by Year, Dynamic Metric, Occupation, and Merchant Category. |
+
+**Dashboard Preview**
+
+![Finance Overview Dashboard](visuals/Overview_dashboard.png)
+
+---
+
+### Dashboard 2 – Transaction Details
+
+**Purpose:**  
+Provides a detailed transaction-level view that enables users to drill down into individual records for deeper analysis and investigation.
+
+#### Features
+
+- Detailed transaction grid
+- Drill-through functionality
+- Interactive filtering
+- Record-level transaction analysis
+- Supports operational auditing and business investigation
+
+**Dashboard Preview**
+
+![Transaction Details Dashboard](visuals/Transactions_dashboard.png)
+
+---
+
+### Dashboard Highlights
+
+- Interactive KPI monitoring
+- Year-over-Year (YoY) performance analysis
+- Dynamic KPI switching using Field Parameters
+- Time intelligence with a Calendar table
+- Customer demographic analysis
+- Geographic performance analysis
+- Transaction profitability analysis
+- Drill-through reporting for detailed transaction records
+---
+
+## 8. KPI & DAX Measures
+
+The dashboard uses **Data Analysis Expressions (DAX)** to calculate key financial metrics, support time intelligence, and enable dynamic reporting. These measures drive the KPI cards, charts, and interactive visualizations throughout the report.
+
+### Key Performance Indicators (KPIs)
+
+| KPI | Description |
+|-----|-------------|
+| **Total Amount** | Calculates the total value of all financial transactions. |
+| **Total Transactions** | Counts the total number of transactions processed. |
+| **Average Transaction Value** | Computes the average transaction amount. |
+| **Total Fees** | Calculates the total fees collected from all transactions. |
+| **Total Tax** | Calculates the total tax generated from all transactions. |
+
+---
+
+### Time Intelligence Measures
+
+The following DAX measures were created to support Year-over-Year (YoY) analysis:
+
+| Measure | Purpose |
+|---------|---------|
+| **Previous Year Amount** | Returns the total transaction amount for the previous year. |
+| **Previous Year Transactions** | Returns the total number of transactions for the previous year. |
+| **Amount YoY Growth (%)** | Calculates the percentage change in transaction amount compared to the previous year. |
+| **Transaction YoY Growth (%)** | Calculates the percentage change in transaction volume compared to the previous year. |
+
+---
+
+### Dynamic Measures
+
+A **Field Parameter (Dynamic Metric)** was created to allow users to switch between different business metrics without changing the report layout.
+
+Available metrics include:
+
+- Total Amount
+- Total Transactions
+- Total Fees
+- Total Tax
+
+This feature dynamically updates KPI cards, charts, and report titles based on the selected metric.
+
+---
+
+### Additional DAX Features
+
+- Time Intelligence using a **Calendar Table**
+- Dynamic KPI selection with **Field Parameters**
+- Interactive filtering through slicers
+- Reusable DAX measures for consistent calculations across visuals
+
+> 💡 **Business Value:** These DAX measures enable stakeholders to monitor financial performance, compare Year-over-Year trends, and analyze business metrics dynamically through an interactive reporting experience.
+> 
 ## 9. Analysis & Metrics
 
 ### Analytical Approach
