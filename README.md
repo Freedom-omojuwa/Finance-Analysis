@@ -163,7 +163,7 @@ Customers.csv             Financial_Transactions.csv
 5. **Dashboard Development:** Designed interactive dashboards with KPI cards, charts, slicers, matrices, and drill-through functionality to analyze financial performance, customer behavior, and transaction trends.
 
 6. **Output:** Delivered a Finance Analytics Dashboard that enables stakeholders to monitor KPIs, analyze trends, and make data-driven business decisions.
-```
+
 
 ## 6. Data Model & Schema
 
