@@ -387,7 +387,7 @@ The dashboard uses DAX measures to calculate financial KPIs, support time intell
 | YoY Growth (%) | Calculates the Year-over-Year growth rate. |
 | Dynamic Metric | Allows users to switch between KPIs using Field Parameters. |
 
-> 📄 **Complete DAX formulas:** See [`docs/DAX Measures.md`](docs/DAX%20Measures.md).
+> 📄 **Complete DAX formulas:** See [`docs/DAX Measures.md`](docs/DAX_Measures.md).
 
 ## 9. Analysis & Metrics
 
