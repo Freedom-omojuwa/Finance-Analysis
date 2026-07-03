@@ -182,7 +182,7 @@ The tables are connected using a **star schema**, allowing efficient filtering, 
 
 ## Power BI Data Model
 
-> **Insert a screenshot of your Power BI Model View here.**
+> **![Finance Overview Dashboard](visuals/Data_Model.png)**
 
 ```text
                Calendar
@@ -349,7 +349,7 @@ Provides a detailed transaction-level view that enables users to drill down into
 
 **Dashboard Preview**
 
-![Transaction Details Dashboard](visuals/Transactions_dashboard.png)
+![Transaction Details Dashboard](visuals/Transaction_dashboard.png)
 
 ---
 
