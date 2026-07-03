@@ -2,9 +2,9 @@
 
 > Interactive Power BI dashboard analyzing financial transactions, customer demographics, fees, taxes, transaction performance, and year-over-year trends using an end-to-end data model.
 
-![Overview Dashboard](visuals/overview-dashboard.png)
+![Overview Dashboard](visuals/Overview_dashboard.png)
 
-![Transaction Dashboard](visuals/transaction-dashboard.png)
+![Transaction Dashboard](visuals/Transaction_dashboard.png)
 ---
 
 ## Table of Contents
