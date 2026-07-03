@@ -117,12 +117,13 @@ finance-analytics-dashboard/
 │   └── Finance Analytics Dashboard.pbix  # Interactive Power BI dashboard
 │
 ├── visuals/                              # Images used in the README
-│   ├── overview-dashboard.png            # Dashboard 1 – Finance Overview
-│   ├── transactions-dashboard.png        # Dashboard 2 – Transaction Details
-│   └── data-model.png                    # Power BI data model (Model View)
+│   ├── overview_dashboard.png            # Dashboard 1 – Finance Overview
+│   ├── transactions_dashboard.png        # Dashboard 2 – Transaction Details
+│   └── data_model.png                    # Power BI data model (Model View)
 │
 ├── docs/                                 # Project documentation
-│   └── Business Requirements.pdf         # Original business requirements document
+│   ├── Business Requirements.pdf         # Original business requirements document
+│   └── DAX Measures.md
 │
 └── README.md                             # Project documentation and setup guide
 
@@ -369,55 +370,25 @@ Provides a detailed transaction-level view that enables users to drill down into
 
 The dashboard uses **Data Analysis Expressions (DAX)** to calculate key financial metrics, support time intelligence, and enable dynamic reporting. These measures drive the KPI cards, charts, and interactive visualizations throughout the report.
 
-### Key Performance Indicators (KPIs)
+## 8. KPI & DAX Measures
 
-| KPI | Description |
-|-----|-------------|
-| **Total Amount** | Calculates the total value of all financial transactions. |
-| **Total Transactions** | Counts the total number of transactions processed. |
-| **Average Transaction Value** | Computes the average transaction amount. |
-| **Total Fees** | Calculates the total fees collected from all transactions. |
-| **Total Tax** | Calculates the total tax generated from all transactions. |
+The dashboard uses DAX measures to calculate financial KPIs, support time intelligence, and enable dynamic reporting. These measures power the KPI cards, charts, and interactive visuals throughout the report.
 
----
-
-### Time Intelligence Measures
-
-The following DAX measures were created to support Year-over-Year (YoY) analysis:
+### Key Measures
 
 | Measure | Purpose |
 |---------|---------|
-| **Previous Year Amount** | Returns the total transaction amount for the previous year. |
-| **Previous Year Transactions** | Returns the total number of transactions for the previous year. |
-| **Amount YoY Growth (%)** | Calculates the percentage change in transaction amount compared to the previous year. |
-| **Transaction YoY Growth (%)** | Calculates the percentage change in transaction volume compared to the previous year. |
+| Total Amount | Calculates the total value of all transactions. |
+| Total Transactions | Counts the total number of transactions. |
+| Average Transaction Value | Calculates the average value per transaction. |
+| Total Fees | Calculates the total fees collected. |
+| Total Tax | Calculates the total tax generated. |
+| Previous Year Amount | Returns the previous year's transaction amount. |
+| YoY Growth (%) | Calculates the Year-over-Year growth rate. |
+| Dynamic Metric | Allows users to switch between KPIs using Field Parameters. |
 
----
+> 📄 **Complete DAX formulas:** See [`docs/DAX Measures.md`](docs/DAX%20Measures.md).
 
-### Dynamic Measures
-
-A **Field Parameter (Dynamic Metric)** was created to allow users to switch between different business metrics without changing the report layout.
-
-Available metrics include:
-
-- Total Amount
-- Total Transactions
-- Total Fees
-- Total Tax
-
-This feature dynamically updates KPI cards, charts, and report titles based on the selected metric.
-
----
-
-### Additional DAX Features
-
-- Time Intelligence using a **Calendar Table**
-- Dynamic KPI selection with **Field Parameters**
-- Interactive filtering through slicers
-- Reusable DAX measures for consistent calculations across visuals
-
-> 💡 **Business Value:** These DAX measures enable stakeholders to monitor financial performance, compare Year-over-Year trends, and analyze business metrics dynamically through an interactive reporting experience.
-> 
 ## 9. Analysis & Metrics
 
 ### Analytical Approach
