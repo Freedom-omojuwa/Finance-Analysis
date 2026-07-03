@@ -110,8 +110,10 @@ finance-analytics-dashboard/
 │   ├── raw/                              # Original datasets before transformation
 │   │   ├── Customers.csv                 # Customer demographic data
 │   │   └── Finance_Transactions.csv      # Financial transaction records
-│   │
-│   └── processed/                        # Cleaned/transformed datasets (optional)
+│
+├── docs/                                 # Project documentation
+│   ├── Business Requirements.pdf         # Original business requirements document
+│   └── DAX Measures.md                   # # Documentation of all DAX calculations used in power BI
 │
 ├── pbix/                                 # Power BI project file
 │   └── Finance Analytics Dashboard.pbix  # Interactive Power BI dashboard
@@ -120,10 +122,6 @@ finance-analytics-dashboard/
 │   ├── overview_dashboard.png            # Dashboard 1 – Finance Overview
 │   ├── transactions_dashboard.png        # Dashboard 2 – Transaction Details
 │   └── data_model.png                    # Power BI data model (Model View)
-│
-├── docs/                                 # Project documentation
-│   ├── Business Requirements.pdf         # Original business requirements document
-│   └── DAX Measures.md
 │
 └── README.md                             # Project documentation and setup guide
 
