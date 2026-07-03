@@ -106,14 +106,25 @@ Build an interactive **Finance Analytics Dashboard in Power BI** that enables st
 ```
 finance-analytics-dashboard/
 │
-├── data/
-│   ├── raw/          # Original dataset before cleaning
-│   └── processed/    # Cleaned and transformed data used for analysis and dashboard 
+├── data/                                 # Project datasets
+│   ├── raw/                              # Original datasets before transformation
+│   │   ├── Customers.csv                 # Customer demographic data
+│   │   └── Finance_Transactions.csv      # Financial transaction records
+│   │
+│   └── processed/                        # Cleaned/transformed datasets (optional)
 │
-├── visuals/          # Dashboard screenshots and exported visuals 
+├── pbix/                                 # Power BI project file
+│   └── Finance Analytics Dashboard.pbix  # Interactive Power BI dashboard
 │
-└── README.md         # You are here (Project documentation)
-```
+├── visuals/                              # Images used in the README
+│   ├── overview-dashboard.png            # Dashboard 1 – Finance Overview
+│   ├── transactions-dashboard.png        # Dashboard 2 – Transaction Details
+│   └── data-model.png                    # Power BI data model (Model View)
+│
+├── docs/                                 # Project documentation
+│   └── Business Requirements.pdf         # Original business requirements document
+│
+└── README.md                             # Project documentation and setup guide
 
 ---
 
