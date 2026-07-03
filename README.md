@@ -15,23 +15,37 @@
 4. [Repository Structure](#4-repository-structure)
 5. [Data Workflow](#5-data-workflow)
 6. [Data Model & Schema](#6-data-model--schema)
-7. [Analysis & Metrics](#7-analysis--metrics)
-8. [Key Insights](#8-key-insights)
-9. [Recommendations](#9-recommendations)
-10. [Assumptions & Limitations](#10-assumptions--limitations)
-11. [Future Enhancements](#11-future-enhancements)
-12. [Deliverables](#12-deliverables)
-13. [Author](#13-author)
+7. [Dashboard Pages](#7-analysis--metrics)
+8. [KPIs & DAX Measures](#8-analysis--metrics)
+9. [Analysis & Metrics](#9-analysis--metrics)
+10. [Key Insights](#10-key-insights)
+11. [Recommendations](#11-recommendations)
+12. [Assumptions & Limitations](#12-assumptions--limitations)
+13. [Future Enhancements](#13-future-enhancements)
+14. [Deliverables](#14-deliverables)
+15. [Author](#15-author)
 
 ---
 
 ## 1. Project Overview
 
 **Context:** 
-This project was developed as part of a hands-on end-to-end Excel dashboard project focused on analyzing furniture sales data across multiple regions in the United States.
+A financial organization requires an interactive Power BI dashboard to monitor financial performance, customer behavior, transaction trends, fees, taxes, and operational efficiency.
 
-**Problem Statement:** 
-Businesses often struggle to quickly identify sales trends, profitable regions, top-performing categories, and shipping performance from large sales datasets.
+The solution provides decision-makers with a centralized analytical platform capable of monitoring KPIs, evaluating transaction performance, analyzing customer demographics, and identifying business opportunities through interactive reporting.
+
+**Business Problem** 
+Management needed a single dashboard capable of:
+
+- Monitoring financial performance
+- Tracking transaction growth
+- Comparing yearly performance
+- Identifying successful and failed transactions
+- Understanding customer behavior
+- Measuring state performance
+- Analyzing transaction types
+- Monitoring fees and taxes
+- Supporting detailed drill-through analysis
 
 **Approach:**  
 Using Microsoft Excel, Power Query, Pivot Tables, Pivot Charts, and slicers, raw sales data was cleaned, transformed, analyzed, and visualized into an interactive dashboard.
@@ -43,45 +57,54 @@ The final result is a dynamic sales performance dashboard that provides insights
 
 ## 2. Objectives
 
-- **Primary Objective:** Build an interactive Excel dashboard to analyze furniture sales performance across regions and customer segments.
-- **Secondary Objective 1:** Identify trends in sales, profit, and quantity sold over time.
-- **Secondary Objective 2:** Analyze shipping methods and delivery performance.
-- **Secondary Objective 3:** Visualize geographic and category-level sales performance.
+### Primary Objective
 
-> 💡 *Every analysis and dashboard component in this project was designed to support these objectives.*
+Build an interactive **Finance Analytics Dashboard in Power BI** that enables stakeholders to monitor financial performance, analyze customer behavior, and evaluate transaction trends through dynamic and data-driven visualizations.
 
+### Secondary Objectives
+
+- Monitor key financial KPIs, including Total Amount, Total Transactions, Average Transaction Value, Total Fees, and Total Tax.
+- Analyze transaction trends across time, customer segments, transaction types, and geographic regions.
+- Evaluate operational performance through transaction status and Year-over-Year (YoY) analysis.
+- Provide interactive reporting with dynamic filters, KPI switching, and drill-through capabilities to support business decision-making.
+
+> 💡 *All dashboard components, DAX measures, and visualizations were designed to support these business objectives and deliver actionable financial insights.*
 ---
 
 ## 3. Project Scope & Tools
 
-### Scope
+### Project Scope
 
--->
-
-| Dimension        | Details |
-|-----------------|---------|
-| **In Scope**     | Furniture sales data, sales trends, shipping analysis, customer segments, category performance, and regional analysis |
-| **Out of Scope** | Predictive modeling, customer demographics, and advanced statistical forecasting |
-| **Time Period**  | Historical sales transaction dataset used within the tutorial project |
-| **Granularity**  | Transaction-level sales records |
+| Dimension | Details |
+|-----------|---------|
+| **In Scope** | Financial transaction analysis, customer demographics, transaction status, customer segments, state-wise performance, transaction type analysis, fees, taxes, and Year-over-Year (YoY) performance. |
+| **Out of Scope** | Predictive analytics, fraud detection modeling, real-time data streaming, and machine learning analysis. |
+| **Data Sources** | Two CSV datasets: **Financial Transactions** and **Customers**. |
+| **Time Period** | Historical financial transaction data used for dashboard analysis. |
+| **Granularity** | Transaction-level records linked to customer information through a relational data model. |
 
 ### Tools & Technologies
 
-| Category        | Tool(s) Used |
-|----------------|-------------|
-| Data Storage    | Excel Workbook / CSV Dataset |
-| Data Processing | Microsoft Excel, Power Query |
-| Analysis        | Pivot Tables, Pivot Charts |
-| Visualization   | Microsoft Excel Dashboard |
-| Documentation   | Microsoft Excel / Excel Notes |
-| Other           | Slicers, Dynamic Titles |
+| Category | Tool(s) Used |
+|----------|--------------|
+| **Business Intelligence** | Microsoft Power BI Desktop |
+| **Data Source** | CSV Files |
+| **Data Transformation** | Power Query |
+| **Data Modeling** | Star Schema, Relationships |
+| **Data Analysis** | DAX (Data Analysis Expressions) |
+| **Time Intelligence** | Calendar Table, YoY Calculations |
+| **Dynamic Reporting** | Field Parameters (Dynamic Metric) |
+| **Visualization** | Power BI Charts, KPI Cards, Matrix, Slicers |
+| **Documentation** | GitHub Markdown (README.md) |
+
+> 💡 *The project follows an end-to-end Power BI workflow, from data preparation and modeling to interactive dashboard development and business insight generation.*
 
 ---
 
 ## 4. Repository Structure
 
 ```
-furniture-sales-performance-dashboard/
+finance-analytics-dashboard/
 │
 ├── data/
 │   ├── raw/          # Original dataset before cleaning
@@ -97,180 +120,334 @@ furniture-sales-performance-dashboard/
 ## 5. Data Workflow
 
 ```
-Sales Dataset
-      ↓
-Data Import into Excel
-      ↓
-Data Cleaning & Transformation (Power Query)
-      ↓
-Pivot Table & Pivot Chart Analysis
-      ↓
-Interactive Dashboard Development
-      ↓
-Business Insights & Reporting
+## 5. Data Workflow
+
+```text
+Customers.csv             Financial_Transactions.csv
+        │                           │
+        └──────────────┬────────────┘
+                       ▼
+              Data Import into Power BI
+                       ▼
+       Data Cleaning & Transformation (Power Query)
+                       ▼
+          Data Modeling & Relationships
+                       ▼
+     Calendar Table & Dynamic Metric Creation
+                       ▼
+          DAX Measures & Time Intelligence
+                       ▼
+      Interactive Dashboard Development
+                       ▼
+          Business Insights & Reporting
 ```
 
-1. **Source:** [Where did the data come from? Format, size, access method.]
-2. **Ingestion:** Dataset imported into Microsoft Excel.
-3. **Cleaning:** Removed duplicates, standardized formats, and handled inconsistent entries using Power Query.
-4. **Transformation:** Created calculated fields, KPIs, and summarized data for dashboard reporting.
-5. **Analysis:** Performed trend analysis, category analysis, shipping analysis, and regional comparisons using Pivot Tables and Charts
-6. **Output:** Interactive Excel dashboard with filters, KPIs, and visual reports.
+### Workflow Description
+
+1. **Data Source:** Imported two CSV datasets containing customer information and financial transaction records into Power BI.
+
+2. **Data Preparation:** Cleaned and transformed the datasets using **Power Query** by correcting data types, handling inconsistencies, and preparing the data for analysis.
+
+3. **Data Modeling:** Established relationships between the **Customers** and **Finance Transactions** tables using `customer_id`, and created a **Calendar Table** to support time-based analysis.
+
+4. **Feature Engineering:** Created DAX measures for key performance indicators (KPIs), Year-over-Year (YoY) calculations, and a **Dynamic Metric** using Field Parameters for interactive KPI switching.
+
+5. **Dashboard Development:** Designed interactive dashboards with KPI cards, charts, slicers, matrices, and drill-through functionality to analyze financial performance, customer behavior, and transaction trends.
+
+6. **Output:** Delivered a Finance Analytics Dashboard that enables stakeholders to monitor KPIs, analyze trends, and make data-driven business decisions.
+```
 
 ---
 
 ## 6. Data Model & Schema
 
-## Dataset: Furniture Sales Data
+### Dataset Overview
 
-This dataset contains transactional-level furniture sales records used for analysis and dashboard development.
+This project uses a relational data model consisting of four tables to support interactive financial analysis and reporting:
 
-Each row represents a single sales transaction, including customer, product, shipping, and financial details.
+- **Finance Transactions** (Fact Table)
+- **Customers** (Dimension Table)
+- **Calendar** (Date Dimension)
+- **Dynamic Metric** (Field Parameter Table)
 
----
-
-## Data Structure
-
-| Field Name     | Data Type | Description | Example Value |
-|----------------|----------|-------------|---------------|
-| Order ID       | Text     | Unique identifier for each order | CA-2016-152156 |
-| Order Date     | Date     | Date the order was placed | 11/08/2016 |
-| Ship Date      | Date     | Date the order was shipped | 11/11/2016 |
-| Ship Mode      | Text     | Shipping method used | Second Class |
-| Customer ID    | Text     | Unique identifier for each customer | CG-12520 |
-| Customer Name  | Text     | Name of the customer | Claire Gute |
-| Segment        | Text     | Customer segment | Consumer |
-| Country        | Text     | Country of purchase | United States |
-| City           | Text     | Customer city | Henderson |
-| State          | Text     | Customer state | Kentucky |
-| Region         | Text     | Geographic region | South |
-| Product ID     | Text     | Unique product identifier | FUR-BO-10001798 |
-| Category       | Text     | Product category | Furniture |
-| Sub-Category   | Text     | Product sub-category | Bookcases |
-| Product Name   | Text     | Name of the product | Bush Somerset Collection Bookcase |
-| Sales          | Number   | Revenue generated from sale | 261.96 |
-| Quantity       | Number   | Number of units purchased | 2 |
-| Discount       | Number   | Discount applied to order | 0.00 |
-| Profit         | Number   | Profit generated from order | 41.91 |
-| Duration       | Text     | Shipping duration | 3 days |
-| Month          | Text     | Month of order | Nov |
-
-> **Row count (approx.):** 2122 rows
-> **Date range:** 01/06/2014 – 12/30/2017 
+The tables are connected using a **star schema**, allowing efficient filtering, time intelligence, and dynamic reporting.
 
 ---
 
-## 7. Analysis & Metrics
+## Power BI Data Model
+
+> **Insert a screenshot of your Power BI Model View here.**
+
+```text
+               Calendar
+                   │
+                   │
+                   ▼
+Customers ─────► Finance Transactions ◄──── Dynamic Metric
+                    (Fact Table)          (Disconnected)
+```
+
+---
+
+## Table 1 – Finance Transactions (Fact Table)
+
+The **Finance Transactions** table stores all financial transaction records and serves as the central fact table for analysis.
+
+Each row represents a single financial transaction.
+> **Row count:** **50,069** rows
+
+| Column | Data Type | Description | Example Value |
+|---------|-----------|-------------|---------------|
+| Transaction ID | Text | Unique identifier for each transaction | TXN00012345 |
+| Customer ID | Text | Links each transaction to a customer | CUST00125 |
+| Transaction Date | Date | Date the transaction occurred | 2024-05-15 |
+| Transaction Type | Text | Type of financial transaction | Transfer |
+| Amount | Decimal Number | Transaction amount | 1250.50 |
+| Fee Amount | Decimal Number | Transaction fee charged | 15.00 |
+| Tax Amount | Decimal Number | Tax charged on the transaction | 2.50 |
+| Transaction Status | Text | Status of the transaction | Success |
+| Merchant Category | Text | Category of merchant | Retail |
+| Channel | Text | Transaction channel | Mobile Banking |
+| Risk Score | Whole Number | Risk assessment score | 35 |
+| Currency | Text | Transaction currency | INR |
+
+---
+
+## Table 2 – Customers (Dimension Table)
+
+The **Customers** table contains demographic and profile information used for customer analysis.
+> **Row count:** **5,000** rows
+
+| Column | Data Type | Description | Example Value |
+|---------|-----------|-------------|---------------|
+| Customer ID | Text | Unique customer identifier | CUST00125 |
+| Full Name | Text | Customer name | Rahul Sharma |
+| Gender | Text | Customer gender | Male |
+| Date of Birth | Date | Customer date of birth | 1992-08-18 |
+| Occupation | Text | Customer occupation | Engineer |
+| State | Text | Customer state | Maharashtra |
+| Customer Segment | Text | Customer category | Premium |
+| Annual Income | Whole Number | Customer annual income | 850000 |
+| Join Date | Date | Date customer joined | 2021-06-10 |
+
+---
+
+## Table 3 – Calendar (Date Dimension)
+
+A dedicated **Calendar** table was created using DAX to support time intelligence calculations and date-based analysis.
+
+
+### Purpose
+
+- Year filtering
+- Monthly trend analysis
+- Year-over-Year (YoY) comparisons
+- Time intelligence calculations
+
+### Calendar Fields
+> **Row count:** **1,434** rows
+
+| Column | Data Type | Description | Example Value |
+|---------|-----------|-------------|---------------|
+| Date | Date | Complete calendar date | 2024-01-15 |
+| Year | Whole Number | Calendar year | 2024 |
+| Month | Text | Month name | Jan |
+| Month Number | Whole Number | Numeric month used for sorting | 1 |
+
+---
+
+## Table 4 – Dynamic Metric (Field Parameter)
+
+A **Dynamic Metric** table was created using **Power BI Field Parameters** to allow users to switch between different KPIs across visuals.
+
+### Available Metrics
+
+- Total Amount
+- Total Transactions
+- Total Fees
+- Total Tax
+
+This parameter updates KPI cards, charts, and titles dynamically based on the selected metric.
+
+---
+
+## Relationship Structure
+
+| From Table | Column | To Table | Column | Relationship |
+|------------|--------|----------|--------|--------------|
+| Customers | Customer ID | Finance Transactions | Customer ID | One-to-Many (1:*) |
+| Calendar | Date | Finance Transactions | Transaction Date | One-to-Many (1:*) |
+| Dynamic Metric | Field Parameter | Dashboard Measures | — | Disconnected |
+
+---
+
+## Data Modeling Approach
+
+The dashboard follows a **Star Schema** design, where the **Finance Transactions** table acts as the fact table and the **Customers** and **Calendar** tables serve as dimension tables. A disconnected **Dynamic Metric** table enables interactive KPI switching without affecting model relationships.
+
+This approach improves query performance, simplifies filtering, and supports reusable DAX measures and time intelligence calculations.
+
+---
+
+## Data Model Features
+
+- ✔ Star Schema Design
+- ✔ One-to-Many Relationships
+- ✔ Calendar Table for Time Intelligence
+- ✔ Dynamic KPI Switching using Field Parameters
+- ✔ Reusable DAX Measures
+- ✔ Optimized Model for Interactive Reporting
+  
+
+---
+
+## 9. Analysis & Metrics
 
 ### Analytical Approach
 
-This project uses exploratory data analysis (EDA) in Excel to examine furniture sales performance across regions, customer segments, product categories, and shipping methods. The goal is to identify trends, performance drivers, and business opportunities from transactional sales data.
+This project applies **Exploratory Data Analysis (EDA)** techniques in Power BI to evaluate financial transaction performance, customer behavior, and operational efficiency. Using DAX measures, time intelligence functions, and interactive visualizations, the dashboard transforms raw transactional data into actionable business insights.
 
-The analysis was carried out using Pivot Tables, Pivot Charts, and Excel formulas to summarize and visualize key business metrics.
+The analysis focuses on identifying transaction trends, measuring key financial indicators, comparing customer segments, and evaluating Year-over-Year (YoY) performance to support strategic decision-making.
 
+---
 
-## Key Metrics Defined
+### Key Performance Indicators (KPIs)
 
-| Metric | Definition | Why It Matters |
+| Metric | Definition | Business Value |
 |--------|------------|----------------|
-| Total Sales | Total revenue generated from all furniture transactions | Measures overall business sales performance |
-| Total Profit | Total profit earned after discounts and sales | Measures profitability performance |
-| Total Quantity | Total number of products sold | Measures sales volume and customer demand |
-| YoY Growth | Percentage increase or decrease compared to the previous year | Tracks yearly business performance changes |
-| Shipping Duration | Number of days between order date and ship date | Evaluates delivery performance and shipping efficiency |
-
----
-## Methods Used
-
-- Data cleaning and transformation using Power Query
-- KPI calculations for Sales, Profit, and Quantity
-- Pivot Tables for summarization and aggregation
-- Pivot Charts for monthly sales trend analysis
-- Geographic sales analysis using Excel Map visuals
-- Shipping mode and shipping duration analysis
-- Interactive filtering using Region and Segment slicers
-- Category and city-level sales comparison 
+| **Total Amount** | Sum of all transaction amounts | Measures the overall financial value of transactions. |
+| **Total Transactions** | Total number of transactions processed | Indicates transaction volume and business activity. |
+| **Average Transaction Value** | Average amount per transaction | Evaluates customer spending behavior. |
+| **Total Fees** | Sum of all transaction fees collected | Measures operational revenue generated from transaction fees. |
+| **Total Tax** | Sum of taxes collected from transactions | Tracks tax generated through financial transactions. |
+| **YoY Growth (%)** | Percentage change compared to the previous year | Measures business growth over time. |
 
 ---
 
+### Analytical Techniques
 
-## 8. Key Insights
-
-### Insight 1: California Recorded the Highest Sales Performance
-
-The dashboard shows that California generated the highest sales contribution among all states, indicating stronger customer demand and higher transaction activity compared to other regions.
-
-### Insight 2: Chairs Were the Best-Performing Furniture Category
-
-Among all furniture sub-categories, Chairs generated the highest sales revenue, making it the strongest-performing product category in the dataset.
-
-### Insight 3: Standard Class Was the Most Frequently Used Shipping Method
-
-Most customer orders were shipped using Standard Class delivery, suggesting a preference for more cost-effective shipping options over faster premium methods.
-
-### Insight 4: Most Orders Were Delivered Within 4–5 Days
-
-Shipping duration analysis revealed that the majority of orders were delivered within 4 to 5 days, showing relatively stable delivery performance across transactions.
-
-### Insight 5: Sales Increased Significantly Toward Year-End
-
-Monthly sales trends show stronger sales performance during November and December, suggesting possible seasonal demand increases during the end of the year.
-
-### Insight 6: Consumer Customers Contributed the Largest Share of Sales
-
-The Consumer segment generated the highest overall sales contribution compared to Corporate and Home Office segments, showing that individual customers drove most of the revenue.
+- Data cleaning and transformation using **Power Query**.
+- Star schema data modeling with fact and dimension tables.
+- Creation of a **Calendar Table** to support time intelligence calculations.
+- Development of reusable **DAX measures** for KPI calculations.
+- Implementation of **Year-over-Year (YoY)** analysis using DAX.
+- Dynamic KPI switching using **Power BI Field Parameters**.
+- Interactive filtering using slicers for **Year**, **Occupation**, **Category**, and **Dynamic Metric**.
+- Drill-through functionality for detailed transaction-level analysis.
 
 ---
 
-## 9. Recommendations
+### Business Analysis Performed
+
+The dashboard provides insights into:
+
+- Monthly transaction amount trends.
+- Transaction performance by **Status** (Success, Failed, Pending).
+- Customer contribution by **Segment**.
+- State-wise financial performance.
+- Transaction profitability by **Transaction Type**.
+- Customer participation by **Gender**.
+- Year-over-Year (YoY) financial performance.
+- Detailed transaction records through drill-through reporting.
+
+> 💡 *These analyses enable stakeholders to monitor financial performance, evaluate customer behavior, identify operational trends, and make data-driven business decisions.*
+
+
+## 10. Key Insights
+
+### Insight 1: Transaction Value Increased Over Time
+
+The monthly transaction trend indicates fluctuations in transaction amounts throughout the reporting period, with noticeable peaks in several months. This suggests periods of increased customer activity and higher transaction volumes.
+
+### Insight 2: Successful Transactions Dominated Financial Performance
+
+The majority of the total transaction amount was generated from **successful transactions**, while failed and pending transactions contributed only a small proportion. This reflects a relatively efficient transaction processing system.
+
+### Insight 3: Retail Customers Contributed the Highest Transaction Value
+
+Among all customer segments, the **Retail** segment generated the largest share of transaction amounts, making it the organization's most valuable customer group during the analysis period.
+
+### Insight 4: Financial Performance Varied Across States
+
+State-wise analysis revealed differences in transaction values across regions, with a few states contributing significantly more than others. This highlights opportunities for region-specific business strategies and resource allocation.
+
+### Insight 5: Transfer and Loan EMI Transactions Generated Significant Value
+
+Transaction type analysis showed that **Transfer** and **Loan EMI** transactions contributed substantially to the overall transaction amount, while also generating considerable fees and taxes.
+
+### Insight 6: Customer Participation Was Relatively Balanced by Gender
+
+Both male and female customers contributed significantly to the total transaction value, indicating balanced customer participation across genders.
+
+### Insight 7: Fees and Taxes Increased Alongside Transaction Volume
+
+Higher transaction activity resulted in increased fee and tax collections, demonstrating a positive relationship between transaction volume and operational revenue.
+
+### Insight 8: Dynamic Reporting Improved Business Analysis
+
+The implementation of **Dynamic Metrics**, interactive slicers, and drill-through functionality enabled users to seamlessly switch between KPIs, explore data from multiple perspectives, and investigate detailed transaction records without creating multiple reports.
+
+---
+
+## 11. Recommendations
 
 | Priority | Recommendation | Based On | Suggested Owner |
 |----------|---------------|----------|-----------------|
-| High | Increase inventory availability and marketing activities in top-performing states such as California to maximize revenue opportunities | Insight 1 | Sales & Inventory Team |
-| High | Focus promotional campaigns on high-performing categories like Chairs to drive additional sales growth | Insight 2 | Marketing Team |
-| Medium | Maintain and optimize Standard Class shipping operations since it is the most preferred shipping method among customers | Insight 3 | Operations Team |
-| Medium | Prepare targeted promotional campaigns before peak sales periods such as November and December | Insight 5 | Marketing & Sales Team |
-| Low | Develop strategies to improve engagement and sales contribution from Corporate and Home Office customer segments | Insight 6 | Business Development Team |
----
+| High | Strengthen customer engagement and retention strategies for the **Retail** segment, as it contributes the highest share of transaction value and represents a key revenue driver. | Insight 3 | Customer Success Team |
+| High | Increase investment and targeted marketing efforts in high-performing states to maximize transaction growth and expand market opportunities. | Insight 4 | Regional Business Team |
+| High | Improve transaction reliability by investigating the root causes of failed transactions and enhancing validation rules, system monitoring, and customer support processes. | Insight 2 | Operations Team |
+| Medium | Optimize high-value transaction services such as **Transfers** and **Loan EMI** by improving service efficiency and introducing value-added financial products. | Insight 5 | Product & Finance Team |
+| Medium | Leverage customer demographic insights, including gender and occupation, to design personalized financial products and targeted marketing campaigns. | Insight 6 | Marketing Team |
+| Medium | Monitor monthly transaction trends and allocate operational resources proactively during peak transaction periods to maintain service quality. | Insight 1 | Operations Team |
+| Low | Enhance the dashboard with predictive analytics, fraud detection capabilities, and real-time data refresh to support proactive business decision-making. | Future Enhancements | Analytics Team |
 
-## 10. Assumptions & Limitations
+> 💡 **Business Impact:** Implementing these recommendations can help improve transaction efficiency, strengthen customer engagement, increase operational revenue, and support data-driven strategic decision-making.
+
+## 12. Assumptions & Limitations
 
 ### Assumptions
 
-- All transaction records in the dataset were assumed to be complete and accurate.
-- Sales, profit, and discount values were assumed to be correctly recorded.
-- Shipping duration values were assumed to reflect actual delivery timelines.
-- Customer and regional information were assumed to be consistent across all records.
+- All customer and financial transaction records were assumed to be complete, accurate, and free from significant data quality issues.
+- Each transaction was assumed to be uniquely identified by its **Transaction ID**, and each customer by their **Customer ID**.
+- The relationship between the **Customers** and **Finance Transactions** tables was assumed to be valid and consistent.
+- Transaction amounts, fees, and tax values were assumed to be correctly recorded and calculated.
+- The Calendar table was assumed to accurately represent the entire transaction date range for time intelligence calculations.
+- Year-over-Year (YoY) calculations were based on the available historical data within the dataset.
 
 ---
 
 ### Limitations
 
-- The dataset is a sample/tutorial dataset and may not fully represent real-world business operations.
-- The analysis focuses only on historical sales data and does not include predictive forecasting.
-- Customer demographic and behavioral data were not included in the dataset.
-- External business factors such as marketing spend, economic conditions, and competitor activity were not considered.
-- The project was developed entirely in Excel without advanced statistical or machine learning analysis.
+- The analysis is based solely on the provided historical dataset and may not reflect current business performance.
+- The dashboard does not include real-time data refresh or live database connectivity.
+- External factors such as economic conditions, inflation, customer preferences, or marketing campaigns were not considered.
+- Fraud detection, predictive analytics, and customer lifetime value analysis are outside the scope of this project.
+- The findings and insights are limited to the available data and may vary if additional datasets or business variables are incorporated.
 
 ---
 
-## 11. Future Enhancements
+## 13. Future Enhancements
 
-- [ ] Build a Power BI version of the dashboard for enhanced interactivity
-- [ ] Add automated dashboard refresh using Power Query connections
-- [ ] Include predictive sales forecasting analysis
-- [ ] Expand the dashboard with additional KPIs and customer behavior analysis
+- [ ] Integrate the dashboard with a live SQL database or cloud data source to enable real-time reporting.
+- [ ] Implement Row-Level Security (RLS) to provide role-based access for different business users.
+- [ ] Develop predictive analytics models to forecast transaction trends and financial performance.
+- [ ] Incorporate fraud detection metrics and anomaly detection to identify suspicious transaction patterns.
+- [ ] Add advanced customer analytics, including customer lifetime value (CLV) and retention analysis.
+- [ ] Expand the dashboard with additional KPIs, such as transaction success rate and average processing time.
+- [ ] Enable automated data refresh through the Power BI Service to ensure up-to-date reporting.
+- [ ] Optimize the dashboard for mobile devices to improve accessibility for stakeholders on the go.
 
 ---
 
-## 12. Deliverables
+## 14. Deliverables
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Raw Dataset | Original furniture sales dataset used for analysis | `/data/raw/` |
-| Processed Dataset | Cleaned and transformed dataset used for dashboard reporting including Interactive Excel dashboard with KPIs, slicers, charts, and maps | `/data/processed/` |
-| Dashboard Visuals | Dashboard screenshots and exported visuals | `/visuals/` |
-| README Documentation | Full project documentation and workflow explanation | `/README.md` |
+| Raw Datasets | Original **Customers** and **Finance Transactions** CSV files used for analysis. | `/data/raw/` |
+| Power BI Report | Interactive Power BI report containing the data model, DAX measures, and dashboard pages. | `/pbix/` |
+| Dashboard Visuals | Screenshots of the Overview Dashboard, Transactions Dashboard, and Power BI Data Model. | `/visuals/` |
+| Project Documentation | Business requirements or supporting project documents (if available). | `/docs/` |
+| README Documentation | Complete project documentation, including workflow, data model, analysis, insights, and recommendations. | `/README.md` |
 
 ---
 
@@ -285,5 +462,5 @@ Aspiring Data Analyst | Quantity Surveying Graduate
 
 ---
 
-*Last updated: May 2026*
+*Last updated: July 2026*
 
